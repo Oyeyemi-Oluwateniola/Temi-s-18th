@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 18th Birthday, Temi 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine: #6B1E3C;
+    --wine-deep: #4A0E28;
+    --wine-light: #8B2E52;
+    --purple: #7B3FA0;
+    --purple-light: #A066C2;
+    --purple-pale: #D4B8E8;
+    --cream: #F8F0F4;
+    --gold: #C9A96E;
+    --text: #2A0A1A;
+  }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(--purple);
+font-family: 'Josefin Sans', sans-serif;
+color: var(--gold);
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* Noise texture overlay */
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 0;
+opacity: 0.5;
+}
+
+/* Hero */
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 2rem;
+overflow: hidden;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: -30%;
+left: -20%;
+width: 70%;
+height: 70%;
+background: radial-gradient(ellipse, rgba(123,63,160,0.35) 0%, transparent 70%);
+pointer-events: none;
+}
+.hero::after {
+content: '';
+position: absolute;
+bottom: -20%;
+right: -10%;
+width: 60%;
+height: 60%;
+background: radial-gradient(ellipse, rgba(139,46,82,0.4) 0%, transparent 70%);
+pointer-events: none;
+}
+
+.petal {
+position: absolute;
+width: 8px;
+height: 8px;
+border-radius: 50% 0 50% 0;
+opacity: 0;
+animation: fall linear infinite;
+}
+
+@keyframes fall {
+0% { transform: translateY(-20px) rotate(0deg); opacity: 0.7; }
+100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.age-display {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(8rem, 22vw, 18rem);
+font-weight: 300;
+line-height: 0.85;
+color: transparent;
+-webkit-text-stroke: 1px rgba(201,169,110,0.4);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+z-index: 0;
+letter-spacing: -0.05em;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+}
+
+.happy-birthday {
+font-family: 'Josefin Sans', sans-serif;
+font-weight: 100;
+font-size: clamp(0.65rem, 2vw, 0.9rem);
+letter-spacing: 0.5em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 1.2rem;
+animation: fadeUp 1s ease 0.2s both;
+}
+
+.name {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(3.5rem, 12vw, 8rem);
+font-weight: 300;
+font-style: italic;
+line-height: 1;
+color: var(--cream);
+animation: fadeUp 1s ease 0.4s both;
+text-shadow: 0 0 60px rgba(201,169,110,0.2);
+}
+
+.subtitle {
+font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+letter-spacing: 0.3em;
+font-weight: 300;
+color: var(-–purple-pale);
+margin-top: 1.5rem;
+animation: fadeUp 1s ease 0.6s both;
+}
+
+.scroll-hint {
+position: absolute;
+bottom: 2.5rem;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+animation: fadeUp 1s ease 1.2s both;
+cursor: pointer;
+}
+
+.scroll-hint span {
+font-size: 0.55rem;
+letter-spacing: 0.4em;
+color: var(--gold);
+opacity: 0.7;
+}
+
+.scroll-line {
+width: 1px;
+height: 40px;
+background: linear-gradient(to bottom, var(--gold), transparent);
+animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Letters Section */
+.letters-section {
+position: relative;
+z-index: 2;
+padding: 6rem 2rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 4rem;
+}
+
+.section-label {
+font-size: 0.6rem;
+letter-spacing: 0.6em;
+color: var(--gold);
+text-transform: uppercase;
+margin-bottom: 1rem;
+}
+
+.section-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(2rem, 5vw, 3.5rem);
+font-weight: 300;
+font-style: italic;
+color: var(--cream);
+}
+
+.section-divider {
+width: 80px;
+height: 1px;
+background: linear-gradient(to right, transparent, var(--gold), transparent);
+margin: 1.5rem auto 0;
+}
+
+/* Letter Grid */
+.letters-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+gap: 1rem;
+margin-bottom: 4rem;
+}
+
+.letter-btn {
+aspect-ratio: 1;
+border: 1px solid rgba(201,169,110,0.2);
+background: rgba(107, 30, 60, 0.2);
+backdrop-filter: blur(10px);
+color: var(--cream);
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.8rem;
+font-weight: 300;
+font-style: italic;
+cursor: pointer;
+border-radius: 4px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 0.3rem;
+}
+
+.letter-btn .letter-num {
+font-family: 'Josefin Sans', sans-serif;
+font-size: 0.5rem;
+letter-spacing: 0.2em;
+color: var(--gold);
+font-style: normal;
+opacity: 0.7;
+}
+
+.letter-btn::before {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(123,63,160,0.3), rgba(107,30,60,0.3));
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.letter-btn:hover {
+border-color: rgba(201,169,110,0.6);
+transform: translateY(-3px);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(123,63,160,0.2);
+}
+
+.letter-btn:hover::before { opacity: 1; }
+
+.letter-btn.opened {
+border-color: var(--gold);
+background: rgba(123,63,160,0.25);
+}
+
+.letter-btn.opened .letter-num { color: var(--purple-pale); }
+
+/* Modal */
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(10, 0, 15, 0.85);
+backdrop-filter: blur(8px);
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+opacity: 1;
+pointer-events: all;
+}
+
+.modal {
+background: linear-gradient(145deg, var(--wine-deep), #2A0A2E);
+border: 1px solid rgba(201,169,110,0.25);
+border-radius: 8px;
+padding: clamp(2rem, 6vw, 4rem);
+max-width: 600px;
+width: 100%;
+position: relative;
+transform: translateY(30px) scale(0.97);
+transition: transform 0.4s ease;
+max-height: 85vh;
+overflow-y: auto;
+}
+
+.modal-overlay.active .modal {
+transform: translateY(0) scale(1);
+}
+
+.modal::before {
+content: '';
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 2px;
+background: linear-gradient(to right, transparent, var(--gold), var(--purple-light), var(--gold), transparent);
+}
+
+.modal-num {
+font-size: 0.55rem;
+letter-spacing: 0.5em;
+color: var(--gold);
+text-transform: uppercase;
+margin-bottom: 0.8rem;
+}
+
+.modal-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(1.8rem, 4vw, 2.8rem);
+font-weight: 300;
+font-style: italic;
+color: var(--cream);
+margin-bottom: 2rem;
+line-height: 1.1;
+}
+
+.modal-divider {
+width: 50px;
+height: 1px;
+background: linear-gradient(to right, var(--gold), var(--purple-light));
+margin-bottom: 2rem;
+}
+
+.modal-body {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(1rem, 2.5vw, 1.2rem);
+line-height: 1.9;
+color: rgba(248, 240, 244, 0.85);
+font-weight: 300;
+}
+
+.modal-close {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+background: none;
+border: 1px solid rgba(201,169,110,0.3);
+color: var(--gold);
+width: 34px;
+height: 34px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1rem;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s;
+font-family: 'Josefin Sans', sans-serif;
+font-weight: 100;
+}
+
+.modal-close:hover {
+background: rgba(201,169,110,0.15);
+border-color: var(--gold);
+}
+
+/* Progress */
+.progress-bar-wrap {
+text-align: center;
+margin-top: 3rem;
+}
+
+.progress-label {
+font-size: 0.55rem;
+letter-spacing: 0.4em;
+color: var(--gold);
+margin-bottom: 0.8rem;
+}
+
+.progress-track {
+width: 200px;
+height: 2px;
+background: rgba(255,255,255,0.1);
+border-radius: 2px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+background: linear-gradient(to right, var(--wine-light), var(--purple-light));
+border-radius: 2px;
+transition: width 0.5s ease;
+}
+
+/* Footer */
+.footer {
+text-align: center;
+padding: 3rem 2rem 4rem;
+position: relative;
+z-index: 2;
+}
+
+.footer-text {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+font-style: italic;
+color: rgba(248,240,244,0.4);
+font-weight: 300;
+}
+
+.footer-heart {
+color: var(--wine-light);
+font-style: normal;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--wine-deep); }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+</style>
+
+</head>
+<body>
+
+<!-- Falling petals -->
+
+<div id="petals"></div>
+
+<!-- Hero -->
+
+<section class="hero">
+  <div class="age-display">18</div>
+  <div class="hero-content">
+    <p class="happy-birthday">Happy 18th Birthday</p>
+    <h1 class="name">Temi</h1>
+    <p class="subtitle">Eighteen letters, just for you</p>
+  </div>
+  <div class="scroll-hint" onclick="document.querySelector('.letters-section').scrollIntoView({behavior:'smooth'})">
+    <span>Open your letters</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Letters -->
+
+<section class="letters-section">
+  <div class="section-header">
+    <p class="section-label">A gift of words</p>
+    <h2 class="section-title">18 Letters for 18 Years</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="letters-grid" id="lettersGrid"></div>
+
+  <div class="progress-bar-wrap">
+    <p class="progress-label"><span id="openedCount">0</span> of 18 letters opened</p>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-text">With all the love I have, from Teni <span class="footer-heart">❤️</span></p>
+</footer>
+
+<!-- Modal -->
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <p class="modal-num" id="modalNum"></p>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-divider"></div>
+    <p class="modal-body" id="modalBody"></p>
+  </div>
+</div>
+
+<script>
+const letters = [
+  {
+    title: "To the girl who laughs like a goat🤣",
+    body: "You make those around you want to smile."
+  },
+  {
+    title: "",
+    body: ""
+  },
+  {
+    title: "You are stronger than you know",
+    body: "There will be moments this new year, and every year to come when the path ahead looks scary and you won't feel ready. I need you to know that you are stronger than you think and I will be with you every step of the way."
+  },
+  {
+    title: "On being eighteen and finally legal",
+    body: "Welcome to the age where you can finally make your own choices. This is the year the world begins to hand you the pen to your own story. Write boldly. Make mistakes with intention. Choose things that make your chest feel full, not empty. Your freedom is sacred — honour it."
+  },
+  {
+    title: "The friend you are to me",
+    body: "I don't think you fully understand what your friendship means to me. You show up. Not just physically, but in the way that counts — with patience, with honesty, with laughter at exactly the right moments. Thank you for being my person. I hope I am even half the friend to you that you are to me."
+  },
+  {
+    title: "To your laugh",
+    body: "If I could bottle one thing and keep it forever, it would be your laugh. Not the polite one — the real one. The one that catches you off guard and takes over your whole face. The world is so much better with that laugh in it. Promise me you'll never stop letting it out."
+  },
+  {
+    title: "On the hard days",
+    body: "Not every day at eighteen will feel golden, and I want you to know that that's allowed. On the days when the weight of everything feels too heavy, you don't have to pretend otherwise. Sit with it. Feel it. Then, when you're ready, take one small step forward. One is always enough."
+  },
+  {
+    title: "Your dreams are valid",
+    body: "Every single thing you have ever quietly hoped for — every ambition you've tucked away because it felt too big or too far — I want you to know it is valid. It counts. It matters. The size of a dream has never been a measure of whether it can come true. Dream loudly, Temi."
+  },
+  {
+    title: "On kindness",
+    body: "In a world that can be harsh and fast and sometimes unkind, you have chosen to be gentle. That is not weakness — it is one of the most radical things a person can do. Your kindness has touched people in ways you will never fully know. It is one of your most beautiful qualities."
+  },
+  {
+    title: "To your strength",
+    body: "I have watched you carry things. Quietly, without complaint, without asking for applause. You are so much stronger than you give yourself credit for. The things you've already survived would have bent others. You bent too — but you never broke. That is extraordinary."
+  },
+  {
+    title: "On the year ahead",
+    body: "Eighteen stretches ahead of you like a new road on a clear morning — long, full of turns, and entirely yours. You don't need to see the whole path to take the first step. Just show up, stay curious, be kind to yourself, and trust that where you're going is worth the journey."
+  },
+  {
+    title: "You are already enough",
+    body: "Before the achievements, before the milestones, before the things you'll build and become — you are already, right now, enough. Not 'enough when you get there.' Not 'enough after you prove it.' Enough today. As you are. Exactly as you are."
+  },
+  {
+    title: "On the beauty of being you",
+    body: "There is nobody like you. I mean that not as a compliment but as a fact. Your particular combination of mind and heart and humour and soul exists nowhere else in the universe. That is not ordinary. That is miraculous. Never trade it for the comfort of being like everyone else."
+  },
+  {
+    title: "For the moments you doubt yourself",
+    body: "When the voice in your head is too loud and too cruel, remember this letter. Remember that someone who knows you — really knows you — wrote down in ink that they believe in you. That they see something in you that is rare and real. Let that be louder than the doubt."
+  },
+  {
+    title: "On joy",
+    body: "Chase it. Protect it. Do not apologise for it. Joy is not frivolous — it is essential. Notice the things that fill you up: the music, the food, the conversations, the places. Gather them close. Return to them often. A joyful life is not found — it is built, carefully, from all the small things that matter."
+  },
+  {
+    title: "To the woman you're becoming",
+    body: "She is going to be something. I can already see it in the way you carry yourself, in the questions you ask, in the care you give. The woman you are growing into is compassionate and strong and wonderfully complicated. I am so proud to know you at the beginning of her story."
+  },
+  {
+    title: "A promise",
+    body: "I promise to always be here, through the big and small things, through every good and bad. I'm not going anywhere. You will always have a friend in me."
+  },
+  {
+    title: "Lastly, Happy Birthday, Temi",
+    body: "I hope this year is everything you want it to be and more. I hope you find moments that fill you with warmth, people who make your heart joyful, and experiences that shape you in the best ways. You deserve all the happiness in the world. Happy 18th, Temi."
+  }
+];
+
+const openedLetters = new Set();
+
+function createPetals() {
+  const container = document.getElementById('petals');
+  const colors = ['#7B3FA0','#6B1E3C','#A066C2','#8B2E52','#C9A96E'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.cssText = `
+      left: ${Math.random()*100}%;
+      width: ${4 + Math.random()*8}px;
+      height: ${4 + Math.random()*8}px;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      opacity: 0.5;
+      animation-duration: ${6 + Math.random()*10}s;
+      animation-delay: ${Math.random()*8}s;
+      position: fixed;
+      z-index: 1;
+    `;
+    container.appendChild(p);
+  }
+}
+
+function buildGrid() {
+  const grid = document.getElementById('lettersGrid');
+  letters.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'letter-btn';
+    btn.id = `letter-${i}`;
+    btn.innerHTML = `<span class="letter-num">No. ${String(i+1).padStart(2,'0')}</span>${i+1}`;
+    btn.onclick = () => openLetter(i);
+    grid.appendChild(btn);
+  });
+}
+
+function openLetter(i) {
+  const letter = letters[i];
+  document.getElementById('modalNum').textContent = `Letter No. ${String(i+1).padStart(2,'0')} of 18`;
+  document.getElementById('modalTitle').textContent = letter.title;
+  document.getElementById('modalBody').textContent = letter.body;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  if (!openedLetters.has(i)) {
+    openedLetters.add(i);
+    document.getElementById(`letter-${i}`).classList.add('opened');
+    updateProgress();
+  }
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay') && !e.target.classList.contains('modal-close')) return;
+  if (e && e.target.classList.contains('modal')) return;
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function updateProgress() {
+  const n = openedLetters.size;
+  document.getElementById('openedCount').textContent = n;
+  document.getElementById('progressFill').style.width = `${(n/18)*100}%`;
+}
+
+createPetals();
+buildGrid();
+</script>
+
+</body>
+</html>
